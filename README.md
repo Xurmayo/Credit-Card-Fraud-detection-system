@@ -258,7 +258,7 @@ Needs careful threshold tuning
 
 ---
 
-## 📈 Performance Analysis & Conclusions
+## Performance Analysis & Conclusions
 
 ### Model Comparison
 
