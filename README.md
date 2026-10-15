@@ -15,18 +15,18 @@ Both models are trained on historical transaction data, then deployed to score n
 
 ### Key Features
 
-✅ **Real-Time Processing** - Processes streaming transactions from Kafka  
-✅ **Dual Model Approach** - Combines two different ML algorithms for robust detection  
-✅ **Pre-Trained Models** - Models are already trained and saved (ready to use)  
-✅ **Feature Preprocessing** - Automatic normalization and encoding of transaction features  
-✅ **Performance Metrics** - Detailed accuracy, precision, recall, and F1-score evaluations  
-✅ **Visualization** - Confusion matrices and anomaly score distributions  
-✅ **Modular Code** - Clean, commented, and easy to understand  
-✅ **Research-Grade Evaluation** - ROC/PR curves, baselines, hyperparameter sensitivity, ensemble methods, SMOTE analysis
+ **Real-Time Processing** - Processes streaming transactions from Kafka  
+**Dual Model Approach** - Combines two different ML algorithms for robust detection  
+**Pre-Trained Models** - Models are already trained and saved (ready to use)  
+**Feature Preprocessing** - Automatic normalization and encoding of transaction features  
+**Performance Metrics** - Detailed accuracy, precision, recall, and F1-score evaluations  
+**Visualization** - Confusion matrices and anomaly score distributions  
+**Modular Code** - Clean, commented, and easy to understand  
+**Research-Grade Evaluation** - ROC/PR curves, baselines, hyperparameter sensitivity, ensemble methods, SMOTE analysis
 
 ---
 
-## 🔬 Research Enhancements
+## Research Enhancements
 
 This implementation addresses common weaknesses in anomaly detection systems for research purposes:
 
@@ -64,7 +64,7 @@ This implementation addresses common weaknesses in anomaly detection systems for
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 project/
@@ -108,7 +108,7 @@ project/
 
 ---
 
-## 🚀 How to Run the Project
+##  How to Run the Project
 
 ### Step 1: Install Dependencies
 
@@ -140,7 +140,7 @@ Verify Kafka is running:
 docker-compose ps
 ```
 
-### Step 3: Train Models (Already Done ✅)
+### Step 3: Train Models
 
 Models are already trained and saved in the `models/` directory. But if you want to retrain them:
 
@@ -195,14 +195,14 @@ The producer will send all 100k transactions from the dataset to Kafka, and the 
 - Anomaly score = path length in the tree (shorter = more anomalous)
 
 **Advantages:**
-✅ Fast training and prediction  
-✅ No need for distance/density calculations  
-✅ Works well with high-dimensional data  
-✅ Unsupervised (doesn't need labeled data)  
+Fast training and prediction  
+No need for distance/density calculations  
+Works well with high-dimensional data  
+Unsupervised (doesn't need labeled data)  
 
 **Disadvantages:**
-❌ May struggle with local density variations  
-❌ Less effective when anomalies are in same regions as normal data  
+May struggle with local density variations  
+Less effective when anomalies are in same regions as normal data  
 
 **Performance:**
 - Accuracy: 89.39%
@@ -220,15 +220,15 @@ The producer will send all 100k transactions from the dataset to Kafka, and the 
 - Threshold set at 95th percentile of normal reconstruction errors
 
 **Advantages:**
-✅ Can learn complex patterns in normal data  
-✅ Better at detecting contextual anomalies  
-✅ Flexible neural network architecture  
-✅ Handles multi-dimensional data well  
+Can learn complex patterns in normal data  
+Better at detecting contextual anomalies  
+Flexible neural network architecture  
+Handles multi-dimensional data well  
 
 **Disadvantages:**
-❌ Requires more data for training  
-❌ Slower than tree-based methods  
-❌ Needs careful threshold tuning  
+Requires more data for training  
+Slower than tree-based methods  
+Needs careful threshold tuning  
 
 **Performance:**
 - Accuracy: 94.03%
@@ -238,7 +238,7 @@ The producer will send all 100k transactions from the dataset to Kafka, and the 
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 **Credit Card Fraud Detection Dataset:**
 - Total transactions: 100,000
@@ -268,28 +268,28 @@ The producer will send all 100k transactions from the dataset to Kafka, and the 
 | Precision | 0.0103 | 0.0090 |
 | Recall | 0.0939 | 0.0423 |
 | F1-Score | 0.0185 | 0.0148 |
-| Training Speed | ⚡ Fast | 🔄 Moderate |
-| Inference Speed | ⚡ Very Fast | ⚡ Fast |
+| Training Speed | Fast |  Moderate |
+| Inference Speed | Very Fast | Fast |
 
 ### Key Findings
 
-#### 1. **Class Imbalance Challenge** 🎯
+#### 1. **Class Imbalance Challenge** 
 - The dataset is heavily imbalanced (99% normal, 1% fraud)
 - Both models' low recall (~5-10%) reflects the difficulty of detecting rare frauds
 - **Conclusion:** Metrics like Precision and Recall are more meaningful than Accuracy for this use case
 
-#### 2. **Model Trade-offs** ⚖️
+#### 2. **Model Trade-offs** 
 - **Isolation Forest**: Better Recall (catches more frauds) but more false positives
 - **Autoencoder**: Better Precision (fewer false alarms) but misses more frauds
 - **Conclusion:** Choice depends on business requirements (fraud cost vs. customer friction)
 
-#### 3. **Real-Time Performance** ⚡
+#### 3. **Real-Time Performance** 
 - Average latency: < 0.1 seconds per transaction
 - Throughput: 10-50 messages/second (depending on hardware)
 - Both models suitable for production real-time systems
 - **Conclusion:** System can process 864,000 - 4,320,000 transactions per day
 
-#### 4. **Anomaly Score Distributions** 📊
+#### 4. **Anomaly Score Distributions** 
 - Both models show clear separation between normal and fraudulent transactions
 - Isolation Forest scores are discrete (tree-based)
 - Autoencoder scores are continuous (reconstruction errors)
@@ -297,7 +297,7 @@ The producer will send all 100k transactions from the dataset to Kafka, and the 
 
 ---
 
-## 🎓 Recommendations for Production
+##  Recommendations for Production
 
 ### 1. **Combine Both Models**
 ```python
@@ -329,7 +329,7 @@ is_fraud = (iso_forest_score > threshold1) OR (autoencoder_score > threshold2)
 
 ---
 
-## 🔍 System Architecture
+##  System Architecture
 
 ```
 Raw Transactions
@@ -359,7 +359,7 @@ Raw Transactions
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -371,7 +371,7 @@ Raw Transactions
 
 ---
 
-## 📝 Usage Examples
+##  Usage Examples
 
 ### Example 1: Single Transaction Prediction
 
@@ -407,7 +407,7 @@ python consumer.py
 
 ---
 
-## 📚 File Descriptions
+## File Descriptions
 
 | File | Purpose |
 |------|---------|
@@ -420,16 +420,16 @@ python consumer.py
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 This project demonstrates a **production-ready real-time anomaly detection system** with:
 
-1. **✓ Complete ML Pipeline** - From data preprocessing to model training to real-time inference
-2. **✓ Dual Algorithm Approach** - Combines Isolation Forest and Autoencoder for robust detection
-3. **✓ Real-Time Capability** - Uses Kafka for scalable streaming data processing
-4. **✓ Performance Validated** - Models trained and evaluated on 100k transactions
-5. **✓ Production Ready** - Clean code, proper error handling, modular design
-6. **✓ Extensible Architecture** - Easy to add new features, models, or preprocessing steps
+1. ** Complete ML Pipeline** - From data preprocessing to model training to real-time inference
+2. **Dual Algorithm Approach** - Combines Isolation Forest and Autoencoder for robust detection
+3. **Real-Time Capability** - Uses Kafka for scalable streaming data processing
+4. **Performance Validated** - Models trained and evaluated on 100k transactions
+5. **Production Ready** - Clean code, proper error handling, modular design
+6. **Extensible Architecture** - Easy to add new features, models, or preprocessing steps
 
 **Business Value:**
 - Detect ~9-10% of fraud cases with high precision
@@ -446,7 +446,7 @@ This project demonstrates a **production-ready real-time anomaly detection syste
 
 ---
 
-## 📞 Support
+## Support
 
 For questions or issues, refer to:
 - Model evaluation plots in `models/` directory
