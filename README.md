@@ -184,7 +184,7 @@ The producer will send all 100k transactions from the dataset to Kafka, and the 
 
 ---
 
-## 🤖 Models Explanation
+## Models Explanation
 
 ### Isolation Forest Model
 
