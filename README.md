@@ -1,6 +1,6 @@
 # Real-Time Anomaly Detection System for Credit Card Fraud Detection
 
-## 📋 Project Overview
+## Project Overview
 
 This is a **complete end-to-end machine learning system** designed to detect fraudulent credit card transactions in real-time using Apache Kafka for streaming data processing.
 
